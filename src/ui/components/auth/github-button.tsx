@@ -4,9 +4,8 @@
 import { signIn } from "next-auth/react";
 
 export default function GithubSignInButton() {
-
-    const handlerClick = () => {
-        signIn("github", { callbackUrl: "/" })
+    const handlerClick = async() => {
+        await signIn("github", { callbackUrl: "/?origin=login" })
     }
 
     return (

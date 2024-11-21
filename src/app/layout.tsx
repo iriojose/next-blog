@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 					{children}
 					<Footer />
 					<ClientToastContainer />
-				</AuthProvider>
+				</AuthProvider> 
 			</body>
 		</html>
 	);

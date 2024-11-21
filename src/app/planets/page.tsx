@@ -34,7 +34,7 @@ export default async function Planets({ searchParams }: PageProps)  {
             )}
 
             <Suspense fallback={<Loading />} key={`${page}-${limit}`}>
-                <div className="flex-grow grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 mx-10">
+                <div className="flex-grow grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-1 gap-4 mx-10">
                     <List<Planet> data={data.planets}>
                         {(item, i) => {
                             return (

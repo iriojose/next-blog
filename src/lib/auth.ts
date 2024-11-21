@@ -23,7 +23,9 @@ const authOptions: AuthOptions = {
     },
     
     pages: {
-        signIn: '/signin'
+        signIn: '/signin',
+        signOut: "/signin",
+        error: "/signin",
     },
     providers: [
         Credentials({

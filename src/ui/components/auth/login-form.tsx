@@ -7,19 +7,21 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import Input from '../input'
 import { toast } from "react-toastify";
 import { FaEnvelope, FaLock } from 'react-icons/fa';
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+    const router = useRouter()
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<SignInType>({ resolver: zodResolver(signInSchema)})
 
     const onSubmit: SubmitHandler<SignInType> = async(data) => {
         try {
             const result = await signIn("credentials", { 
                 ...data,
-                callbackUrl: '/',
+                redirect: false,
             });
         
             if(result?.error) return toast.error('Email or password incorrect!'); 
-            toast.success('Welcome!');
+            router.push("/?origin=login")
         } catch (error) {
             console.log(error)
             toast.error('Email or password incorrect!');   
